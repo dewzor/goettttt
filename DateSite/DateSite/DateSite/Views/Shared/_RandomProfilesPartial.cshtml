@@ -1,0 +1,20 @@
+﻿@model DateSite.Models.BrowseModel
+
+
+<div class="row example-users">
+    <ul>
+        @foreach (var i in Model.randomProfiles)
+        {
+            <li class="ref-link">
+                <a href='@Url.Action("BrowseUserRandom", "BrowseProfiles" , new { idd = @i.Id })'>
+                    <div class="profile-box" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
+                        <div class="name-tag">
+                            @i.Firstname
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+

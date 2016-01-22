@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/loginStyle.css");
+}
+
+
+<div class="content-wrapper">
+    @using (@Html.BeginForm())
+{
+
+    <h2>Login</h2>
+
+    <div class="row formLayout">
+        <div class="col-md-12">
+
+            <p>Username</p>
+            <input type="text" id="username" name="username" />
+
+            <p>Password</p>
+            <input type="password" id="password" name="password" />
+
+            <input type="submit" value="Login" />
+            @ViewData["LoginError"]
+        </div>
+    </div>
+}
+
+</div>

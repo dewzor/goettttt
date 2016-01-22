@@ -1,0 +1,32 @@
+﻿@model DateSite.Models.ProfileModel
+
+@{
+    ViewBag.Title = "My profile settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/Profile.css");
+}
+<div class="container content-wrapper">
+    <h2>My profile settings</h2>
+    </br>
+    </br>
+        @using (Html.BeginForm(null , null , FormMethod.Post, new { @id = "usrform", enctype = "multipart/form-data" }))
+        {
+            <div class="col-md-3">
+                        <img src="~/Content/ProfileImages/@(Model.pic)" width="240" height="300" />
+                        <input type="file" id="File" name="File" style="display: none;" />
+                        <input type="button" value="Upload new profile picture" class="uploadpic" />
+            </div>
+            <div class="col-md-8">
+                <p>Hide profile from search?</p>
+                <input type="radio" name="Visibility" value="false" @(Model.visible ? "" : "checked=\"checked\"") />Yes
+                <input type="radio" name="Visibility" value="true" @(!Model.visible ? "" : "checked=\"checked\"") />No
+                <br/>
+                <textarea class="aboutbox" name="Aboutbox" form="usrform">@Model.about </textarea>
+                <br/>
+                <input type="submit" name="submit" value="Submit changes" />
+            </div>
+        }
+
+</div>
+
+<script type="text/javascript" src="@Url.Content("/Scripts/mprofile.js")"></script>

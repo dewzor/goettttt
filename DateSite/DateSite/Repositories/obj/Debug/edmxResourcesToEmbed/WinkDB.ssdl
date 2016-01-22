@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UserDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FriendRequest">
+    <Key>
+      <PropertyRef Name="requestid" />
+    </Key>
+    <Property Name="requestid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="requesterid" Type="int" Nullable="false" />
+    <Property Name="friendid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Friends">
+    <Key>
+      <PropertyRef Name="friendkey" />
+    </Key>
+    <Property Name="friendkey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="friendid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nchar" MaxLength="30" />
+    <Property Name="Lastname" Type="nchar" MaxLength="30" />
+    <Property Name="Email" Type="nchar" MaxLength="40" />
+    <Property Name="Gender" Type="nchar" MaxLength="6" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="About" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Pic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SECURITY">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="VISIBILITY" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WALLPOST">
+    <Key>
+      <PropertyRef Name="POSTID" />
+    </Key>
+    <Property Name="POSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="POST" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__FriendReq__frien__3D2915A8">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FriendRequest">
+        <PropertyRef Name="friendid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FriendReq__reque__3C34F16F">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FriendRequest">
+        <PropertyRef Name="requesterid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friends__friendi__40F9A68C">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="friendid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friends__userid__40058253">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SECURITY__PID__4AB81AF0">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SECURITY">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WALLPOST__FID__412EB0B6">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WALLPOST">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WALLPOST__PID__403A8C7D">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WALLPOST">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UserDBModelStoreContainer">
+    <EntitySet Name="FriendRequest" EntityType="Self.FriendRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SECURITY" EntityType="Self.SECURITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WALLPOST" EntityType="Self.WALLPOST" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__FriendReq__frien__3D2915A8" Association="Self.FK__FriendReq__frien__3D2915A8">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="FriendRequest" EntitySet="FriendRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FriendReq__reque__3C34F16F" Association="Self.FK__FriendReq__reque__3C34F16F">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="FriendRequest" EntitySet="FriendRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friends__friendi__40F9A68C" Association="Self.FK__Friends__friendi__40F9A68C">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friends__userid__40058253" Association="Self.FK__Friends__userid__40058253">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SECURITY__PID__4AB81AF0" Association="Self.FK__SECURITY__PID__4AB81AF0">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="SECURITY" EntitySet="SECURITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WALLPOST__FID__412EB0B6" Association="Self.FK__WALLPOST__FID__412EB0B6">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="WALLPOST" EntitySet="WALLPOST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WALLPOST__PID__403A8C7D" Association="Self.FK__WALLPOST__PID__403A8C7D">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="WALLPOST" EntitySet="WALLPOST" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

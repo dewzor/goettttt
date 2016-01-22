@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    @Styles.Render("~/Content/css")
+}
+
+<head>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="@Url.Content("/Scripts/AutoScroll.js")"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#registerBtn").click(function () {
+                $(location).attr('href', '/Account/Register')
+            });
+
+            $('.example-users').click(function () {
+                $(location).attr('href', '/Home/Index');
+            });
+        });
+    </script>
+
+</head>
+
+<div id="wrapper">
+    <div id="hero">
+        <div class="header">
+            <h1 class="rubberBand animated">Wink</h1>
+            <h2 class="rubberBand animated">Easy Dating Service</h2>
+            <h3 class="rubberBand animated">- Meet your partner today -</h3>
+            <a href="" class ="swing animated" onclick="return false" onmousedown="AutoScrollTo()" id="downBtn"><img src="~/Content/Images/arrow.png" id="arrow" /></a>
+        </div>
+    </div>
+
+    <div id="scrollbox"></div>
+
+    <div class="row index-text">
+        <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2>Easy</h2>
+                <p>Nunc malesuada enim at bibendum vulputate. Etiam a viverra massa, id rhoncus lectus. Nulla ante felis, commodo eget elit vitae, cursus sollicitudin enim. Nam quis quam tincidunt, ornare arcu malesuada, convallis ante. Curabitur lobortis vel nunc a molestie. Etiam malesuada nisl vulputate, porta justo a, dignissim diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque urna feugiat dui accumsan convallis. Sed lobortis velit tellus, finibus dignissim ante ultricies in. Donec ut libero ullamcorper, ultrices justo at, viverra odio. Aliquam pharetra eu erat nec vulputate. Donec nisl ex, posuere nec neque et, maximus consectetur nunc. Etiam auctor, quam ac tempus mollis, neque lacus placerat augue, vel hendrerit mi nulla eget magna.</p>
+            </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row index-text">
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h4>Finder</h4>
+            <p>Nunc malesuada enim at bibendum vulputate. Etiam a viverra massa, id rhoncus lectus. Nulla ante felis, commodo eget elit vitae, cursus sollicitudin enim. Nam quis quam tincidunt, ornare arcu malesuada, convallis ante. Curabitur lobortis vel nunc a molestie. Etiam malesuada nisl vulputate, porta justo a, dignissim diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque urna feugiat dui accumsan convallis. Sed lobortis velit tellus, finibus dignissim ante ultricies in. Donec ut libero ullamcorper, ultrices justo at, viverra odio. Aliquam pharetra eu erat nec vulputate. Donec nisl ex, posuere nec neque et, maximus consectetur nunc. Etiam auctor, quam ac tempus mollis, neque lacus placerat augue, vel hendrerit mi nulla eget magna.</p>
+        </div>
+        
+
+        <div class="col-md-5">
+            <h5>Matching</h5>
+            <p>Proin rhoncus sed ante id vulputate. Integer pretium id magna fringilla sollicitudin. Donec congue turpis ligula. Aenean ornare leo dolor, ac dapibus risus faucibus pretium. Maecenas dignissim consectetur pellentesque. Sed tempor facilisis lacus, ac commodo nunc maximus at. Vestibulum eget eros sed nulla luctus semper at vitae eros. Phasellus elementum maximus fermentum. In aliquet mattis imperdiet. Integer vulputate malesuada lorem et dapibus. Donec ac est ac lorem sagittis iaculis nec ac ex. Quisque non bibendum nulla, eu sodales mi.</p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row picture_collection">
+        <div class="col-md-4"></div>
+        <div class="col-md-1">
+            <img class="faa-float animated" src="~/Content/Images/rowan.jpg" />
+            </div>
+        <div class="col-md-4">
+            <p>Since dating sites banned me for looking hideous or scaring away women, I thought I'd make my own dating site where I'm in charge! This site is totally not scam, pls.</p>
+            <p>- Mr. Bean - CEO of Wink</p>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
+        </div>
+
+    <div class="row index-text">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h4>What in the world are you waiting for?</h4>
+            <p>Etiam sem est, congue sit amet ex in, viverra mollis turpis. Cras eu nibh a lorem efficitur vulputate. Integer ipsum leo, posuere at auctor sit amet, egestas imperdiet nulla. Ut pellentesque sollicitudin velit, at consectetur urna consequat sit amet. Nunc nunc turpis, sagittis ut commodo vel, cursus id metus. Phasellus tincidunt nec mauris nec malesuada. Ut nec egestas leo, venenatis convallis dolor. Nunc commodo tristique est, gravida venenatis eros commodo eu. Nulla luctus nec tortor a molestie.</p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row regArea">
+        <div class="col-md-12">
+            <input type="button" id="registerBtn" value="Register"/>
+        </div>
+    </div>
+
+
+        @Html.Partial("_RandomProfilesPartial")
+
+
+
+
+</div>

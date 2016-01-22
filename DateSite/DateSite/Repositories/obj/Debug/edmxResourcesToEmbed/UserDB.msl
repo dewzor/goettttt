@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UserDBModelStoreContainer" CdmEntityContainer="UserDBEntities">
+    <EntitySetMapping Name="Intrests">
+      <EntityTypeMapping TypeName="UserDBModel.Intrests">
+        <MappingFragment StoreEntitySet="Intrests">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="UserDBModel.Profiles">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SECURITY">
+      <EntityTypeMapping TypeName="UserDBModel.SECURITY">
+        <MappingFragment StoreEntitySet="SECURITY">
+          <ScalarProperty Name="VISIBILITY" ColumnName="VISIBILITY" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WALLPOST">
+      <EntityTypeMapping TypeName="UserDBModel.WALLPOST">
+        <MappingFragment StoreEntitySet="WALLPOST">
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="FID" ColumnName="FID" />
+          <ScalarProperty Name="POST" ColumnName="POST" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="POSTID" ColumnName="POSTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FRIENDSWITH" TypeName="UserDBModel.FRIENDSWITH" StoreEntitySet="FRIENDSWITH">
+      <EndProperty Name="Profiles1">
+        <ScalarProperty Name="Id" ColumnName="UID" />
+      </EndProperty>
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="Id" ColumnName="FID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HAVINGINTREST" TypeName="UserDBModel.HAVINGINTREST" StoreEntitySet="HAVINGINTREST">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="Id" ColumnName="PID" />
+      </EndProperty>
+      <EndProperty Name="Intrests">
+        <ScalarProperty Name="ID" ColumnName="IID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="REQUESTEDFRIEND" TypeName="UserDBModel.REQUESTEDFRIEND" StoreEntitySet="REQUESTEDFRIEND">
+      <EndProperty Name="Profiles1">
+        <ScalarProperty Name="Id" ColumnName="UID" />
+      </EndProperty>
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="Id" ColumnName="FRID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

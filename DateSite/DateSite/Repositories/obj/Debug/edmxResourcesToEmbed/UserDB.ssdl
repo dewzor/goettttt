@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UserDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\PROGRAMMERING\DATESITE\DATESITE\REPOSITORIES\USERDB.MDF.dbo.FRIENDSWITH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FRIENDSWITH">
+    <Key>
+      <PropertyRef Name="UID" />
+      <PropertyRef Name="FID" />
+    </Key>
+    <Property Name="UID" Type="int" Nullable="false" />
+    <Property Name="FID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\PROGRAMMERING\DATESITE\DATESITE\REPOSITORIES\USERDB.MDF.dbo.HAVINGINTREST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="HAVINGINTREST">
+    <Key>
+      <PropertyRef Name="PID" />
+      <PropertyRef Name="IID" />
+    </Key>
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="IID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Intrests">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nchar" MaxLength="30" />
+    <Property Name="Lastname" Type="nchar" MaxLength="30" />
+    <Property Name="Email" Type="nchar" MaxLength="40" />
+    <Property Name="Gender" Type="nchar" MaxLength="6" />
+    <Property Name="Age" Type="int" />
+    <Property Name="About" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Pic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\PROGRAMMERING\DATESITE\DATESITE\REPOSITORIES\USERDB.MDF.dbo.REQUESTEDFRIEND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="REQUESTEDFRIEND">
+    <Key>
+      <PropertyRef Name="UID" />
+      <PropertyRef Name="FRID" />
+    </Key>
+    <Property Name="UID" Type="int" Nullable="false" />
+    <Property Name="FRID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SECURITY">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="VISIBILITY" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WALLPOST">
+    <Key>
+      <PropertyRef Name="POSTID" />
+    </Key>
+    <Property Name="POSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="POST" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FID" Type="int" Nullable="false" />
+    <Property Name="TIME" Type="smalldatetime" />
+  </EntityType>
+  <Association Name="FK__FRIENDSWITH__FID__3C69FB99">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="FRIENDSWITH" Type="Self.FRIENDSWITH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FRIENDSWITH">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FRIENDSWITH__UID__3B75D760">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="FRIENDSWITH" Type="Self.FRIENDSWITH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FRIENDSWITH">
+        <PropertyRef Name="UID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HAVINGINTRE__IID__3A81B327">
+    <End Role="Intrests" Type="Self.Intrests" Multiplicity="1" />
+    <End Role="HAVINGINTREST" Type="Self.HAVINGINTREST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Intrests">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HAVINGINTREST">
+        <PropertyRef Name="IID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HAVINGINTRE__PID__3F466844">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="HAVINGINTREST" Type="Self.HAVINGINTREST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HAVINGINTREST">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REQUESTEDF__FRID__3E52440B">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="REQUESTEDFRIEND" Type="Self.REQUESTEDFRIEND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REQUESTEDFRIEND">
+        <PropertyRef Name="FRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REQUESTEDFR__UID__3D5E1FD2">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="REQUESTEDFRIEND" Type="Self.REQUESTEDFRIEND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REQUESTEDFRIEND">
+        <PropertyRef Name="UID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SECURITY__PID__4222D4EF">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SECURITY">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WALLPOST__FID__412EB0B6">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WALLPOST">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WALLPOST__PID__403A8C7D">
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+    <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WALLPOST">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UserDBModelStoreContainer">
+    <EntitySet Name="Intrests" EntityType="Self.Intrests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SECURITY" EntityType="Self.SECURITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WALLPOST" EntityType="Self.WALLPOST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FRIENDSWITH" EntityType="Self.FRIENDSWITH" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FRIENDSWITH].[UID] AS [UID], 
+    [FRIENDSWITH].[FID] AS [FID]
+    FROM [dbo].[FRIENDSWITH] AS [FRIENDSWITH]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="HAVINGINTREST" EntityType="Self.HAVINGINTREST" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [HAVINGINTREST].[PID] AS [PID], 
+    [HAVINGINTREST].[IID] AS [IID]
+    FROM [dbo].[HAVINGINTREST] AS [HAVINGINTREST]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="REQUESTEDFRIEND" EntityType="Self.REQUESTEDFRIEND" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [REQUESTEDFRIEND].[UID] AS [UID], 
+    [REQUESTEDFRIEND].[FRID] AS [FRID]
+    FROM [dbo].[REQUESTEDFRIEND] AS [REQUESTEDFRIEND]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__FRIENDSWITH__FID__3C69FB99" Association="Self.FK__FRIENDSWITH__FID__3C69FB99">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="FRIENDSWITH" EntitySet="FRIENDSWITH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FRIENDSWITH__UID__3B75D760" Association="Self.FK__FRIENDSWITH__UID__3B75D760">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="FRIENDSWITH" EntitySet="FRIENDSWITH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HAVINGINTRE__IID__3A81B327" Association="Self.FK__HAVINGINTRE__IID__3A81B327">
+      <End Role="Intrests" EntitySet="Intrests" />
+      <End Role="HAVINGINTREST" EntitySet="HAVINGINTREST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HAVINGINTRE__PID__3F466844" Association="Self.FK__HAVINGINTRE__PID__3F466844">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="HAVINGINTREST" EntitySet="HAVINGINTREST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REQUESTEDF__FRID__3E52440B" Association="Self.FK__REQUESTEDF__FRID__3E52440B">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="REQUESTEDFRIEND" EntitySet="REQUESTEDFRIEND" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REQUESTEDFR__UID__3D5E1FD2" Association="Self.FK__REQUESTEDFR__UID__3D5E1FD2">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="REQUESTEDFRIEND" EntitySet="REQUESTEDFRIEND" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SECURITY__PID__4222D4EF" Association="Self.FK__SECURITY__PID__4222D4EF">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="SECURITY" EntitySet="SECURITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WALLPOST__FID__412EB0B6" Association="Self.FK__WALLPOST__FID__412EB0B6">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="WALLPOST" EntitySet="WALLPOST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WALLPOST__PID__403A8C7D" Association="Self.FK__WALLPOST__PID__403A8C7D">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="WALLPOST" EntitySet="WALLPOST" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

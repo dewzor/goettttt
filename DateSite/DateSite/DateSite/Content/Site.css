@@ -1,0 +1,262 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+
+h1, h2, h3, h4,h5,h6{
+       font-family: 'Architects Daughter', cursive;
+       font-weight: bolder;
+}
+
+p{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+.navbar-brand{
+    font-size: 0px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.navbar-brand img{
+    width: 90px;
+}
+
+.navbar{
+    border-color: #212121;
+    z-index: 999;
+    background-color: #2d2d2d;
+}
+
+.icon-bar {
+   background-color:#FF0000 !important;
+}
+
+.navbar li a{
+    color: #fff;
+}
+
+.navbar li a:hover{
+    background-color: #151515;
+}
+
+#hero{
+    background-image:url(Images/hero.jpg);
+    background-size:cover;
+    position:relative;
+    height:100vh;
+    margin: 0 auto;
+    margin-top: -50px;
+    background-position: center center; /* First value is from left and second is from top. You can use use number as well*/
+    background-repeat:no-repeat;
+}
+
+#content{
+  padding:100px 50px;
+  text-align:center;
+  width:80%;
+  margin:0px auto;
+}
+
+#footer{
+    padding:30px 0px;
+    background-color: #2d2d2d;
+    width: 100%;
+    color: #fff;
+    height: auto;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 10px 30px #000000;
+   margin-bottom: -20px;
+
+}
+
+#footer ul li{
+    display: block;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#footer .row{
+    width: 99.9%;
+}
+
+
+
+.header{
+  position:absolute;
+  top:50%;
+  text-align:center;
+  width:100%;
+  color:#fff;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);  
+}
+
+.header h1{
+    font-size: 50px;
+   font-weight: bolder;
+   margin-top: 20%;
+}
+
+.header h2{
+    font-size: 30px;
+        color: #fc2d2d;
+}
+
+.header h3{
+    font-size: 20px;
+}
+
+.index-text{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    font-size: 17px;
+}
+
+.index-text p, .index-text h4, .index-text h5, .index-text h2{
+    margin-top: 2%;
+}
+
+.index-text h4, .index-text h5, .index-text h2{
+    font-size: 24px;
+    color: #fc2d2d;
+
+}
+
+#arrow{
+    width: 100px;
+    margin-top: 13%;
+}
+
+.icons li{
+        display: inline-block;
+}
+
+.bold-li{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #fc2d2d;
+
+
+}
+.icons li img{
+    width: 40px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+#footer-logo{
+    width: 100px;
+    margin-bottom: -40%;
+}
+
+.body-content{
+    min-height: 580px;
+}
+
+#scrollbox{
+    margin-bottom: 0px;
+}
+
+
+.picture_collection img{
+    width: 80px;
+    height: 100px;
+    border: 2px solid #2D2D2D;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.picture_collection{
+    margin: 0 auto;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    background-color: #2D2D2D;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-style: italic;
+}
+
+.picture_collection p{
+    margin-top: 15px;
+}
+
+#registerBtn{
+    background-color: #fc2d2d;
+    border: 0;
+    box-shadow: 2px 5px 20px black;
+    height: 100px;
+    width: 200px;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+#registerBtn:hover{
+    background-color: red;
+    transform: scale(1.05);
+    transition: all .1s ease-in-out;
+}
+
+.regArea{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    width: 99.9%;
+}
+
+.content-wrapper {
+    min-height: 800px;
+}
+
+.example-users{
+    background-color: red;
+    width: 100%;
+    background-color: #E0E0E0;
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+
+}
+
+.example-users ul{
+    margin: 0 auto;
+    text-align: center;
+    list-style-type: none;
+}
+
+.example-users li{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.profile-box{
+    height: 100px;
+    background-color: red;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.name-tag{
+    background-color: black;
+    color: white;
+}

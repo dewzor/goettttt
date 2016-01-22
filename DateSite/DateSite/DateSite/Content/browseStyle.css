@@ -1,0 +1,91 @@
+﻿#filter-profiles{
+    background-color: #2D2D2D;
+    color: #fff;
+}
+
+.filter-box{
+    text-align: center;
+}
+
+.filter-box li p{
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+.form-group{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-group-age{
+        width: 70px;
+}
+
+.form-group-gender{
+        width: 100px;
+}
+
+.form-group-location{
+        width: 160px;
+}
+
+.age-selector{
+    display: inline-block;
+    margin: 0 auto;
+}
+
+h1{
+    margin-top: 5%;
+    font-size: 30px;
+    padding-bottom: 1.5%;
+}
+
+.sides{
+}
+
+.profile{
+    border: 1px solid black;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile p{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+.search-row{
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+input[type="button"]{
+    background-color: white;
+    border: none;
+    font-weight: bold;
+
+}
+
+.profile-text{
+    width: 100%;
+    background-color: #2D2D2D;
+    color: #fff;
+    margin-bottom: 0;
+    height: auto;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-left: -15px
+}
+
+.profiles{
+    width: 99.9%;
+}

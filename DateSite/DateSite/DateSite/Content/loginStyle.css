@@ -1,0 +1,33 @@
+﻿.row input{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.row p{
+    display: block;
+    margin-top: 10px;
+} 
+
+.row input[type="submit"]{
+    display : block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2{
+    text-align : center;
+    margin-bottom: 50px;
+}
+
+form{
+    background-color: #2D2D2D;
+    color: #fff;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-top: 50px;
+}
+
+.row p{
+    text-align: center;
+}

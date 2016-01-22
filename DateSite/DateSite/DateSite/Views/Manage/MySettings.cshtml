@@ -1,0 +1,34 @@
+﻿@model DateSite.Models.MyAccountModel
+
+@{
+    ViewBag.Title = "My account settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/Settings.css");
+}
+<div class="container content-wrapper">
+    <h2>Change account password</h2>
+    <div class="col-md-12 pw">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            @Html.LabelFor(x => x.OLDPASSWORD)
+            @Html.TextBoxFor(x => x.OLDPASSWORD)
+            @Html.ValidationMessageFor(x => x.OLDPASSWORD)
+            <br/>
+            @Html.LabelFor(x => x.PASSWORD)
+            @Html.TextBoxFor(x => x.PASSWORD)
+            @Html.ValidationMessageFor(x => x.PASSWORD)
+            <br/>
+            @Html.LabelFor(x => x.PASSWORDMATCH)
+            @Html.TextBoxFor(x => x.PASSWORDMATCH)
+            @Html.ValidationMessageFor(x => x.PASSWORDMATCH)
+            <br/>
+            <input type="submit" value="SaveSettings" id="submit" />
+        }
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="@Url.Content("/Scripts/mprofile.js")"></script>

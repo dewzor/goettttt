@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UserDBModelStoreContainer" CdmEntityContainer="UserDBEntities">
+    <EntitySetMapping Name="FriendRequest">
+      <EntityTypeMapping TypeName="UserDBModel.FriendRequest">
+        <MappingFragment StoreEntitySet="FriendRequest">
+          <ScalarProperty Name="requestid" ColumnName="requestid" />
+          <ScalarProperty Name="requesterid" ColumnName="requesterid" />
+          <ScalarProperty Name="friendid" ColumnName="friendid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="UserDBModel.Friends">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="friendkey" ColumnName="friendkey" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="friendid" ColumnName="friendid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="UserDBModel.Profiles">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SECURITY">
+      <EntityTypeMapping TypeName="UserDBModel.SECURITY">
+        <MappingFragment StoreEntitySet="SECURITY">
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="VISIBILITY" ColumnName="VISIBILITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WALLPOST">
+      <EntityTypeMapping TypeName="UserDBModel.WALLPOST">
+        <MappingFragment StoreEntitySet="WALLPOST">
+          <ScalarProperty Name="POSTID" ColumnName="POSTID" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="POST" ColumnName="POST" />
+          <ScalarProperty Name="FID" ColumnName="FID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

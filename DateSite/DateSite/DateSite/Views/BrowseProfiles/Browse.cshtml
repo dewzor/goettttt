@@ -1,0 +1,144 @@
+﻿@model DateSite.Models.BrowseModel
+
+@{
+    ViewBag.Title = "Browse Profiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/browseStyle.css");
+
+}
+
+
+<head>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#searchBtn").click(function () {
+                $('.profilebox').remove();
+                
+     
+            });
+
+        });
+    </script>
+</head>
+
+<div class="container">
+    <h1>Browse Profiles</h1>
+    
+    <div id="filter-profiles">
+        <div class="row">
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Age</p></li>
+                    <li>
+                        <div class="age-selector">
+                                <div class="form-group form-group-age">
+                                    <select class="form-control" id="from">
+
+                                        @for (int i = 0; i < 100; i++)
+                                        {
+                                            <option>@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                        <div class="age-selector"><p>-</p></div>
+
+                        <div class="age-selector">
+                            <div class="form-group form-group-age">
+                                <select class="form-control" id="from">
+
+                                    @for (int i = 0; i < 100; i++)
+                                    {
+                                        <option>@i</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        
+                            
+
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Gender</p></li>
+                    <li>
+                        <div class="form-group form-group-gender">
+                            <select class="form-control" id="to">
+                                <option>-</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-group filter-box">
+                    <li><p>Location</p></li>
+                    <li>
+                        <div class="form-group form-group-location">
+                            <select class="form-control" id="to">
+                                @foreach (var i in Model.countries)
+                                {
+                                    if(i.ToString() == "Afghanistan")
+                                    {
+                                        <option>-</option>
+                                    }
+                                    <option>@i.ToString()</option>
+                                }
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <div class="row search-row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm())
+                { 
+                    <p>Search a user</p>
+                    <input type="text" name="searchtext" />
+                    <input type="submit" value="Search" id="searchBtn" />
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<hr />
+
+<div class="row profiles">
+    <div class="col-md-2 sides"></div>
+    <div class="col-md-8">
+
+        <div class="row profile-row">
+            @foreach (var i in Model.profiles)
+            {
+                <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
+                    <div class="col-md-2 profile profilebox" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
+                        <div class="profile-text">
+                            <p>@i.Firstname</p>
+                            <p>@i.Gender @i.Age</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+
+    </div>
+    <div class="col-md-2 sides"></div>
+</div>

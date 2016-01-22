@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/hover.css")
+    @Styles.Render("~/Content/animate.css")
+    @Styles.Render("~/Content/awesomeHover.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/Index"><img src="~/Content/Images/logo.png" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Browse Profiles", "Browse", "BrowseProfiles")</li>
+                  
+
+                    @if (Session["UserID"] != null)
+                    {
+                        <li>@Html.ActionLink("MySettings", "MySettings", "Manage")</li>
+                        <li>@Html.ActionLink("Edit Profile", "Profile", "Manage")</li>
+                        <li>@Html.ActionLink("Friendlist", "Friendlist", "Friend", new { id = Session["UserID"] }, null))</li>
+                    }
+                </ul>
+
+                @if(Session["UserID"] != null){
+                    @Html.Partial("_LoggedInPartial")
+                }
+                else
+                {
+                    @Html.Partial("_LoginPartial");
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+
+    </div>
+
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-10">
+                <ul>
+                    <li class="bold-li">Additional links</li>
+                    <li>Contact</li>
+                    <li>Policy</li>
+                    <li>Privacy</li>
+                </ul>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <ul class="icons">
+                    <li><a href="#"><img src="~/Content/Images/youtube.png" class="hvr-float-shadow" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/facebook.png" class="hvr-float-shadow" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/twitter.png" class="hvr-float-shadow" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/reddit.png" class="hvr-float-shadow" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model DateSite.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/registerStyle.css");
+}
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <h1>Register</h1>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="form-layout col-md-12">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+
+            <div class="row">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(x => x.Firstname)
+                    @Html.TextBoxFor(x => x.Firstname)
+                    @Html.ValidationMessageFor(x => x.Firstname)
+
+                    @Html.DisplayNameFor(x => x.Lastname)
+                    @Html.TextBoxFor(x => x.Lastname)
+                    @Html.ValidationMessageFor(x => x.Lastname)
+
+                    @Html.DisplayNameFor(x => x.Email)
+                    @Html.TextBoxFor(x => x.Email)
+                    @Html.ValidationMessageFor(x => x.Email)
+
+                    @Html.DisplayNameFor(x => x.Password)
+                    @Html.TextBoxFor(x => x.Password)
+                    @Html.ValidationMessageFor(x => x.Password)
+
+                    @Html.DisplayNameFor(x => x.Username)
+                    @Html.TextBoxFor(x => x.Username)
+                    @Html.ValidationMessageFor(x => x.Username)
+                </div>
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(x => x.PasswordMatch)
+                    @Html.TextBoxFor(x => x.PasswordMatch)
+                    @Html.ValidationMessageFor(x => x.PasswordMatch)
+
+                    @Html.DisplayNameFor(x => x.Gender)
+                    @Html.TextBoxFor(x => x.Gender)
+                    @Html.ValidationMessageFor(x => x.Gender)
+
+                    @Html.DisplayNameFor(x => x.Age)
+                    @Html.TextBoxFor(x => x.Age)
+                    @Html.ValidationMessageFor(x => x.Age)
+
+                    @Html.DisplayNameFor(x => x.About)
+                    @Html.TextBoxFor(x => x.About)
+                    @Html.ValidationMessageFor(x => x.About)
+
+                    <input type="submit" value="Register" id="submit" />
+                </div>
+                <div class="col-md-3"></div>
+
+            </div>
+
+
+        }
+
+    </div>
+</div>
