@@ -978,7 +978,7 @@ C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\Da
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.dll
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.pdb
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\bin\sv\DateSite.resources.dll
-C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.Register.resources
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.Register.sv.resources
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.csproj.GenerateResource.Cache
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\sv\DateSite.resources.dll
+C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.Register.resources
