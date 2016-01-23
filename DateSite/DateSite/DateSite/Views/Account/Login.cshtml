@@ -20,6 +20,8 @@
                 @Html.ActionLink("Svenska", "Language", "Account", new { chosenLanguage = "sv" }, null)
 
                 @Register.username
+                @Register.password
+                <br /><br />
 
                 @Html.DisplayNameFor(x => x.Username)
                 @Html.TextBoxFor(x => x.Username)
