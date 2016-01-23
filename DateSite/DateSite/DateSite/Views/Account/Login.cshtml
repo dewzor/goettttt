@@ -1,4 +1,6 @@
-﻿
+﻿@model DateSite.Models.LoginModel
+@using Login
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,23 +10,29 @@
 
 <div class="content-wrapper">
     @using (@Html.BeginForm())
-{
+    {
 
-    <h2>Login</h2>
+        <h2>Login</h2>
 
-    <div class="row formLayout">
-        <div class="col-md-12">
+        <div class="row formLayout">
+            <div class="col-md-12">
+                @Html.ActionLink("English", "Language", "Account", new { chosenLanguage = "en" }, null)
+                @Html.ActionLink("Svenska", "Language", "Account", new { chosenLanguage = "sv" }, null)
 
-            <p>Username</p>
-            <input type="text" id="username" name="username" />
+                @Register.username
 
-            <p>Password</p>
-            <input type="password" id="password" name="password" />
+                @Html.DisplayNameFor(x => x.Username)
+                @Html.TextBoxFor(x => x.Username)
+                @Html.ValidationMessageFor(x => x.Username)
 
-            <input type="submit" value="Login" />
-            @ViewData["LoginError"]
+                @Html.DisplayNameFor(x => x.Password)
+                @Html.TextBoxFor(x => x.Password)
+                @Html.ValidationMessageFor(x => x.Password)
+
+                <input type="submit" value="Login" />
+                @ViewData["LoginError"]
+            </div>
         </div>
-    </div>
-}
+    }
 
 </div>

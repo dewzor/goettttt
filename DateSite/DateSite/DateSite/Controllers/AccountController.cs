@@ -101,5 +101,16 @@ namespace DateSite.Controllers
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
+
+        [HttpGet]
+        public ActionResult Language(string lang)
+        {
+            var cookie = new HttpCookie("lang", lang) { HttpOnly = true };
+
+            Response.AppendCookie(cookie);
+            return RedirectToAction("Login", "Account", new { culture = lang });
+
+        }
     }
 }
