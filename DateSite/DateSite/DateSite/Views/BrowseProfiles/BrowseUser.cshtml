@@ -32,29 +32,47 @@
         </div>
        
         <div id="wallposts"></div>
-        <script>
+        <script type="text/javascript">
+            var uri = '/api/wall/'+@Model.userid;
             $(document).ready(function () {
-                $.ajax({
+                $.getJSON(uri).done(function (data) {
+                    $.each(data, function (key, post) {
+                        $('<li>', { text: insertitem(post) },'</li>').appendTo($('#wallposts'));
+                    });
+                });
+            });
 
-                    url: 'api/Wall/0',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
+            function insertitem(post) {
+                return post.authorname +": "+post.post;
+            }
 
-                        alert("Loaded successfully");
-                    }
-                })
-            })
+            $(function (){
+                $('#sendpost').click(function (){
+                    var text = $(".wall-post").val()
+                    var userid =@Session["UserID"].ToString();
+                    var reciever = @Model.userid.ToString();
+                    var wallpost = {'post' : text, 'authoridstring': userid, 'walluseridstring': reciever };
+                    
+                    $.ajax({
+                        url: "/api/wall",
+                        type: "POST",
+                        data: JSON.stringify(wallpost),
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) { location.reload(); },
+                        error: function () { alert("error"); }
+                });
+            });
+            });
         </script>
         
         <div class="row">
             <div class="col-md-2"></div>
-            <input class="comment-box" type="text" placeholder="Enter your comment..." />
-            <input type="submit" value="Send" />
-            <div class="col-md-2"></div>
-        </div>
+                <input class="wall-post" type="text" placeholder="Enter your comment..." />
+                <input type="submit" value="Post" id="sendpost" />
+            
+                <div class="col-md-2"></div>
+</div>
     </div>
 
 </div>
-
-<script type="text/javascript" src="@Url.Content("/Scripts/wallpost.js")"></script>

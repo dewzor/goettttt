@@ -43,7 +43,7 @@ namespace DateSite.Controllers
         public new ActionResult Profile(ProfileModel profile)
         {
             var userid = Convert.ToInt32(Session["UserID"]);
-            if (profile.File != null && profile.File.ContentLength > 0)
+            if (profile.File != null && profile.File.ContentLength > 0 && profile.File.ContentLength < 2000000 )
             {
                 var fileName = Path.GetFileName(profile.File.FileName);
                 var parts = fileName.Split('.');

@@ -1,8 +1,8 @@
-wallpost / apicontroller
+wallpost / apicontroller ( KLAR)
 språk
 authorize
 global friend button
 change password
 kommentarer
-check file size bild
+check file size bild (KLAR)
 fixa visibility
