@@ -130,3 +130,15 @@ C:\Programmering\DateSite\goettttt\DateSite\DateSite\Repositories\bin\Debug\Enti
 C:\Programmering\DateSite\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 C:\Programmering\DateSite\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.dll
 C:\Programmering\DateSite\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.pdb
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\UserDB.mdf
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\UserDB_log.ldf
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.dll.config
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.dll
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.pdb
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.dll
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.xml
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.dll
+C:\Programmering\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.pdb
