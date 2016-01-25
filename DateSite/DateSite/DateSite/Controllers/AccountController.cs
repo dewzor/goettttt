@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
 
 namespace DateSite.Controllers
@@ -68,7 +69,8 @@ namespace DateSite.Controllers
             {
             Session["UserID"] = usr.PID.ToString();
             Session["Username"] = usr.USERNAME.ToString();
-                return RedirectToAction("LoggedIn");
+                FormsAuthentication.SetAuthCookie(_user.PID.ToString(), false);
+                return RedirectToAction("Profile", "Manage", new RouteValueDictionary(new { _user.USERNAME }));
             }
             else
             {
@@ -99,6 +101,8 @@ namespace DateSite.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 
