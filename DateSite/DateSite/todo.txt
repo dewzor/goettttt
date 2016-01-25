@@ -6,3 +6,5 @@ change password
 kommentarer
 check file size bild (KLAR)
 fixa visibility
+
+måste sätta lite if logged in/loggedout view på wallposts o sånt som jag gjort nyligen.

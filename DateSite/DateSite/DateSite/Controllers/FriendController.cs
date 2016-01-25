@@ -45,5 +45,12 @@ namespace DateSite.Controllers
             _friendRepository.DenyFriend(idd, friendid);
             return RedirectToAction("Friendlist", new { id = inputid });
         }
+
+        public ActionResult Numberfriends(int id)
+        {
+            var frequests = _friendRepository.getFRequests(id);
+            var totalreq = frequests.Count.ToString();
+            return Content(totalreq);
+        } 
     }
 }
