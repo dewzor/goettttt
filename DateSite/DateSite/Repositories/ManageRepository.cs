@@ -163,5 +163,15 @@ namespace Repositories
                     return false;
             }
         }
+        public string getPassword(int id)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var password = (from a in context.SECURITY
+                                where (a.PID == id)
+                                select a.PASSWORD).SingleOrDefault();
+                return password;
+            }
+        }
     }
 }

@@ -61,20 +61,22 @@ namespace DateSite.Controllers
         }
 
         [HttpGet]
-        public ActionResult MySettings()
+        public ActionResult MySettings(int id)
         {
-            return View();
+            MyAccountModel account = new MyAccountModel();
+            account.getoldpass = _manageRepository.getPassword(id);
+            return View(account);
         }
-
+        
         [HttpPost]
         public ActionResult MySettings(MyAccountModel account)
         {
             var userid = Convert.ToInt32(Session["UserID"]);
             var passmatch = _manageRepository.comparePassword(userid, account.OLDPASSWORD);
-            if (!ModelState.IsValid || !passmatch)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid || !passmatch)
+            //{
+            //    return View();
+            //}
             _manageRepository.UpdatePassword(userid, account.PASSWORD);
 
             return RedirectToAction("Profile");
