@@ -34,6 +34,11 @@ namespace DateSite.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// controller för att visa en profil
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ViewProfile()
         {
             ProfileModel profile = new ProfileModel();
