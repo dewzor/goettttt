@@ -999,7 +999,6 @@ C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\UserDB_log.ldf
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\DateSite.dll.config
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\DateSite.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\DateSite.pdb
-C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\sv\DateSite.resources.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\Antlr3.Runtime.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\EntityFramework.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\EntityFramework.SqlServer.dll
@@ -1060,10 +1059,7 @@ C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\Microsoft.Owin.Security
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.csprojResolveAssemblyReference.cache
-C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.Register.resources
-C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.Register.sv.resources
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.csproj.GenerateResource.Cache
-C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\sv\DateSite.resources.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.dll
 C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.pdb
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\bin\roslyn\csc.exe
@@ -1151,3 +1147,8 @@ C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\bin\sv-SE\Da
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_GlobalResources.Register.resources
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_GlobalResources.Register.sv-SE.resources
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\DateSite\obj\Debug\sv-SE\DateSite.resources.dll
+C:\Programmering\goettttt\DateSite\DateSite\DateSite\bin\sv-SE\DateSite.resources.dll
+C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_GlobalResources.Register.resources
+C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_LocalResources.WebResources.resources
+C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\DateSite.App_GlobalResources.Register.sv-SE.resources
+C:\Programmering\goettttt\DateSite\DateSite\DateSite\obj\Debug\sv-SE\DateSite.resources.dll

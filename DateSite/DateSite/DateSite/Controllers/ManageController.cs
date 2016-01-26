@@ -61,11 +61,9 @@ namespace DateSite.Controllers
         }
 
         [HttpGet]
-        public ActionResult MySettings(int id)
+        public ActionResult MySettings()
         {
-            MyAccountModel account = new MyAccountModel();
-            account.OLDPASSWORD = _manageRepository.getPassword(id);
-            return View(account);
+            return View();
         }
 
         [HttpPost]
