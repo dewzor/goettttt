@@ -14,7 +14,7 @@ namespace DateSite.Controllers
         UsersRepository _usersRepository = new UsersRepository();
         // GET api/wall
         [HttpGet]
-        public IEnumerable<WallModel> Get(string id)
+        public IEnumerable<WallModel> Get(string id) // Hämtar alla wallposts som är skrivna på "id"s wall.
         {
             using (var context = new UserDBEntities())
             {
@@ -39,7 +39,7 @@ namespace DateSite.Controllers
         }
         // SET api/wall
         [HttpPost]
-        public void Post(WallModel post)
+        public void Post(WallModel post) // Hanterar en submittad wallpost och lägger in den i databasen.
         {
             using (var context = new UserDBEntities())
             {

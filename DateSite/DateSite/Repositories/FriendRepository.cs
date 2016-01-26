@@ -9,7 +9,7 @@ namespace Repositories
 {
     public class FriendRepository
     {
-        public List<int> getFriends(int id)
+        public List<int> getFriends(int id) // Hämtar friendslist för ID
         {
             using (var context = new UserDBEntities())
             {
@@ -40,7 +40,7 @@ namespace Repositories
             }
         }
 
-        public bool isFriends(int id, int friendid)
+        public bool isFriends(int id, int friendid) // Kollar om användarna är vänner dvs om vännen finns tillagd hos båda i friendslist.
         {
             using (var context = new UserDBEntities())
             {
@@ -55,7 +55,7 @@ namespace Repositories
             }
         }
 
-        public bool alreadyRequest(int id, int friendid)
+        public bool alreadyRequest(int id, int friendid) // Kollar om friendrequest redan har skickats, då skickas ej igen.
         {
             using (var context = new UserDBEntities())
             {
@@ -69,7 +69,7 @@ namespace Repositories
             }
         }
 
-        public void addFriend(int id, int friendid)
+        public void addFriend(int id, int friendid) // Denna funktionen lägger till vän i BÅDAS vännerlista. Dvs user 1 e friend med 0 och 0 e friend med 1
         {
             using (var context = new UserDBEntities())
             {
@@ -108,10 +108,17 @@ namespace Repositories
                     newfriend1.userid = friendid;
                     newfriend1.friendid = id;
 
-                    context.Friends.Add(newfriend);
-                    context.Friends.Add(newfriend1);
-
-                    context.SaveChanges();
+                    context.Friends.Add(newfriend); // Addar friend hos första personen.
+                    context.Friends.Add(newfriend1); // Addar friend åt andra personen.
+                try
+                {
+                       context.SaveChanges();
+                    }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+               
                 }
 
             }
@@ -185,7 +192,7 @@ namespace Repositories
         {
             using (var context = new UserDBEntities())
             {
-                var deletereq = // Denna och deletereq1 tar bort friendrequests åt båda hållen(för säkerhets skull.)
+                var deletereq = // Denna och deletereq1 tar bort friends åt båda hållen(för säkerhets skull.)
                             (from friend in context.Friends
                              where (friend.userid == id && friend.friendid == friendid)
                              select friend).FirstOrDefault();
@@ -203,7 +210,7 @@ namespace Repositories
                     Console.WriteLine(ex.Message);
                 }
 
-                try  // Försöker rensa friendrequest om den även skickats åt andra hållet.
+                try  // Rensar friends åt andra hållet också.
                 {
                     context.Friends.Remove(deletereq1);
                 }

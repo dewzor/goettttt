@@ -38,7 +38,11 @@ namespace DateSite.Controllers
 
             return View(profile);
         }
-
+        /// <summary>
+        /// Uppdaterar användarens profil med bilder about etc.
+        /// </summary>
+        /// <param name="profile"></param>
+        /// <returns></returns>
         [HttpPost]
         public new ActionResult Profile(ProfileModel profile)
         {
@@ -65,7 +69,11 @@ namespace DateSite.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Uppdaterar användarens lösenord.
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult MySettings(MyAccountModel account)
         {
