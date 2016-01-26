@@ -23,25 +23,25 @@ namespace DateSite
         }
 
 
-        protected void Application_AcquireRequestState(object sender, EventArgs e)
-        {
-            try
-            {
-                var languageCookie = HttpContext.Current.Request.Cookies["lang"];
-                var userLanguages = HttpContext.Current.Request.UserLanguages;
-                var cultureInfo = new CultureInfo(languageCookie != null
-                    ? languageCookie.Value
-                    : userLanguages != null
-                    ? userLanguages[0]
-                    : "en"
-                );
-                Thread.CurrentThread.CurrentUICulture = cultureInfo;
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
-            }
-            catch (Exception ex)
-            {
+        //protected void Application_AcquireRequestState(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        var languageCookie = HttpContext.Current.Request.Cookies["lang"];
+        //        var userLanguages = HttpContext.Current.Request.UserLanguages;
+        //        var cultureInfo = new CultureInfo(languageCookie != null
+        //            ? languageCookie.Value
+        //            : userLanguages != null
+        //            ? userLanguages[0]
+        //            : "en"
+        //        );
+        //        Thread.CurrentThread.CurrentUICulture = cultureInfo;
+        //        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-        }
+        //    }
+        //}
     }
 }

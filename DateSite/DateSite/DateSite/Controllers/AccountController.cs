@@ -2,7 +2,9 @@
 using Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -93,8 +95,16 @@ namespace DateSite.Controllers
             }
         }
 
-        public ActionResult Login()
+        [HttpGet]
+        public ActionResult Login(string lang)
         {
+
+            if (lang != null)
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+            }
+
             return View();
         }
 

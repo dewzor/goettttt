@@ -16,25 +16,33 @@
 
         <div class="row formLayout">
             <div class="col-md-12">
-                @Html.ActionLink("English", "Language", "Account", new { chosenLanguage = "en" }, null)
-                @Html.ActionLink("Svenska", "Language", "Account", new { chosenLanguage = "sv-SE" }, null)
 
-                @Register.username
-                @Register.password
-                <br /><br />
 
-                @Html.DisplayNameFor(x => x.Username)
+                <div class="centering">
+                    @Resources.Register.username
+                </div>
+
                 @Html.TextBoxFor(x => x.Username)
                 @Html.ValidationMessageFor(x => x.Username)
 
-                @Html.DisplayNameFor(x => x.Password)
-                @Html.TextBoxFor(x => x.Password)
-                @Html.ValidationMessageFor(x => x.Password)
+                
+                    <div class="centering">
+                        @Resources.Register.password
+                    </div>
 
-                <input type="submit" value="Login" />
-                @ViewData["LoginError"]
+                    @Html.TextBoxFor(x => x.Password)
+                    @Html.ValidationMessageFor(x => x.Password)
+
+                    <input type="submit" value="@Resources.Register.loginText" />
+                    @ViewData["LoginError"]
+                </div>
+
+            <br /><br />
+                <div class="centering">
+                    @Html.ActionLink("English", "Login", "Account", new { @lang = "en" }, null)
+                    @Html.ActionLink("Svenska", "Login", "Account", new { @lang = "sv-SE" }, null)
+                </div>
             </div>
-        </div>
     }
 
 </div>
