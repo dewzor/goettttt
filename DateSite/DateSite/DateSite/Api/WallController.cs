@@ -53,9 +53,9 @@ namespace DateSite.Controllers
                     context.WALLPOST.Add(newpost);
                     context.SaveChanges();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //tom.
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

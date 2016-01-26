@@ -88,18 +88,18 @@ namespace Repositories
                     {
                         context.FriendRequest.Remove(deletereq);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        //nothing.
+                        Console.WriteLine(ex.Message);
                     }
 
                     try  // Försöker rensa friendrequest om den även skickats åt andra hållet.
                     {
                         context.FriendRequest.Remove(deletereq1);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        //nothing.
+                        Console.WriteLine(ex.Message);
                     }
                     var newfriend = new Friends(); // Lägger till friends i båda personernas friendlist. Viss redundans men vet ej hur annars sköta detta.
                     var newfriend1 = new Friends();
@@ -134,26 +134,26 @@ namespace Repositories
                 {
                     context.FriendRequest.Remove(deletereq);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
 
                 try  // Försöker rensa friendrequest om den även skickats åt andra hållet.
                 {
                     context.FriendRequest.Remove(deletereq1);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
                 try
                 {
                     context.SaveChanges();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -172,9 +172,9 @@ namespace Repositories
                         context.FriendRequest.Add(request);
                         context.SaveChanges();
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        //empty.
+                        Console.WriteLine(ex.Message);
                     }
                 }
 
@@ -198,26 +198,26 @@ namespace Repositories
                 {
                     context.Friends.Remove(deletereq);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
 
                 try  // Försöker rensa friendrequest om den även skickats åt andra hållet.
                 {
                     context.Friends.Remove(deletereq1);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
                 try
                 {
                     context.SaveChanges();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //nothing.
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

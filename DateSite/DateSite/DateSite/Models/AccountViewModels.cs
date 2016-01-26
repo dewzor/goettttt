@@ -24,7 +24,7 @@ namespace DateSite.Models
 
         [Display(Name = "Username")]
         [Required(ErrorMessage = "You need to enter a username")]
-        [RegularExpression("^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){4,18}[a-zA-Z0-9]$", ErrorMessage = "Incorrect Characters")]
+        [RegularExpression("^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){4,18}[a-zA-Z0-9]$", ErrorMessage = "Incorrect Characters")]
         [MinLength(4, ErrorMessage = "Your username need to consist of atleast 4 characters")]
         public string Username { get; set; }
 
@@ -47,7 +47,7 @@ namespace DateSite.Models
         public string Age { get; set; }
 
         [Display(Name = "About")]
-        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Incorrect Firstname")]
+        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Incorrect Characters")]
         public string About { get; set; }
 
         [Key]

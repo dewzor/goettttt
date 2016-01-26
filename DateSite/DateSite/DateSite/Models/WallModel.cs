@@ -8,7 +8,6 @@ namespace DateSite.Models
 {
     public class WallModel
     {
-        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Incorrect Characters")]
         public string post { get; set; }
         public DateTime time { get; set; }
         public int authorid { get; set; }

@@ -56,7 +56,15 @@ namespace Repositories
                     hide.VISIBILITY = true;
                 if (choice == false)
                     hide.VISIBILITY = false;
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
             }
         }
 
@@ -74,7 +82,14 @@ namespace Repositories
                             where (a.Id == id)
                             select a).SingleOrDefault();
                 user.Pic = filename;
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -107,7 +122,14 @@ namespace Repositories
                             where (a.Id == id)
                             select a).SingleOrDefault();
                 user.About = about;
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -140,7 +162,14 @@ namespace Repositories
                             where (a.PID == id)
                             select a).SingleOrDefault();
                 user.PASSWORD = newpass;
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
