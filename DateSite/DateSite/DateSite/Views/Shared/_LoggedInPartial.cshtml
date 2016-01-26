@@ -3,6 +3,6 @@
             <li>
                 <p>Hello @Session["Username"]!</p>
             </li>
-            <li>@Html.ActionLink("My Profile", "Profile", "Manage", new { id = Session["UserID"] }, null)</li>
+            <li>@Html.ActionLink("My Profile", "BrowseUser", "BrowseProfiles", new { id = Session["UserID"] }, null)</li>
             <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
         </ul>
