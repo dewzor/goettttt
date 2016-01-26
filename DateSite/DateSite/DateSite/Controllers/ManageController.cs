@@ -71,11 +71,14 @@ namespace DateSite.Controllers
         {
             var userid = Convert.ToInt32(Session["UserID"]);
             var passmatch = _manageRepository.comparePassword(userid, account.OLDPASSWORD);
-            if (!ModelState.IsValid || !passmatch)
+            
+            if (!passmatch)
             {
                 ModelState.AddModelError("OLDPASSWORD", "Password mismatch!");
-                return View();
+                
             }
+            if(!ModelState.IsValid || !passmatch)
+                return View();
             _manageRepository.UpdatePassword(userid, account.PASSWORD);
 
             return RedirectToAction("Profile");
