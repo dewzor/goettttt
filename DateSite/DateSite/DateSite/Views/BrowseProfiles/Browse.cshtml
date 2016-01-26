@@ -14,11 +14,9 @@
         $(document).ready(function () {
 
             $("#searchBtn").click(function () {
-                $('.profilebox').remove();
-                
-     
+                $('.profilebox').remove(); //tar bort alla visade användare, för att sedan fylla på med användare med matchande sökkriterie 
+                                           // ([HttpPost] Browse i BrowseProfilesController)
             });
-
         });
     </script>
 </head>
