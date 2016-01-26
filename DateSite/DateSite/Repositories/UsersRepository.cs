@@ -18,6 +18,8 @@ namespace Repositories
             UserModel user;
             using (var context = new UserDBEntities())
             {
+
+                //denna linqsats hämtar joinar profiles med security och filterar bort profiler som inte är visible
                 user = (from a in context.Profiles
                         join s in context.SECURITY on a.Id equals s.PID
                         where a.Id == id
@@ -45,17 +47,11 @@ namespace Repositories
         {
             using (var context = new UserDBEntities())
             {
-
-                //context.Database.Connection.Open();
-                //List<UserModel> profile = (from a in context.Profiles
-                //                          where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
-                //                          select a).ToList(); // query som kollar om profiles innehåller inputtade förnamnet eller efternamnet
-                //return profile;
-
+                //denna linqsats hämtar joinar profiles med security och filterar bort profiler som inte är visible
                 List<UserModel> users = new List<UserModel>();
                     users = (from a in context.Profiles
                              join s in context.SECURITY on a.Id equals s.PID
-                             where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
+                             where (a.Lastname.Contains(name) || a.Firstname.Contains(name)) && (s.VISIBILITY == true)  //kollar om usern innehåller angivet firstname, lastname samt om den är visible
                              select new UserModel
                              {
                                  About = a.About,
@@ -82,6 +78,7 @@ namespace Repositories
 
             using (var context = new UserDBEntities())
             {
+                //denna linqsats hämtar joinar profiles med security och filterar bort profiler som inte är visible
                 users = (from a in context.Profiles
                          join s in context.SECURITY on a.Id equals s.PID
                          where (s.VISIBILITY == true)
@@ -113,11 +110,12 @@ namespace Repositories
             {
                 context.Database.Connection.Open();
 
+                //denna linqsats hämtar joinar profiles med security och filterar bort profiler som inte är visible
                 List<UserModel> list = new List<UserModel>();
                     list = (from a in context.Profiles
                              join s in context.SECURITY on a.Id equals s.PID
                              where (s.VISIBILITY == true)
-                             select new UserModel
+                             select new UserModel  //selectar en profile och settar props
                              {
                                  About = a.About,
                                  Age = a.Age,
@@ -128,7 +126,7 @@ namespace Repositories
                                  Lastname = a.Lastname,
                                  Pic = a.Pic,
                                  Visibility = s.VISIBILITY
-                             }).ToList();
+                             }).ToList(); //skickar till list
 
 
 
