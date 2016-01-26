@@ -76,7 +76,7 @@ namespace DateSite.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Username or password is invalid.");
+                @ViewData["LoginError"] = "Incorrect login details";
             }
 
             return View();

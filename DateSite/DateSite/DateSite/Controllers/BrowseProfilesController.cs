@@ -38,7 +38,7 @@ namespace DateSite.Controllers
         public ActionResult BrowseUser(int id)
         {
             
-            Profiles user = _usersRepository.getUserByID(id);
+            UserModel user = _usersRepository.getUserByID(id);
             ProfileModel profile = new ProfileModel();
             profile.about = user.About;
             profile.age = user.Age;

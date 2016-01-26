@@ -5,8 +5,8 @@ namespace DateSite.Models
 {
     public class BrowseModel
     {
-        public List<Profiles> profiles { get; set; }
+        public List<UserModel> profiles { get; set; }
         public List<string> countries { get; set; }
-        public List<Profiles> randomProfiles { get; set; }
+        public List<UserModel> randomProfiles { get; set; }
     }
 }

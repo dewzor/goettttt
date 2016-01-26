@@ -1,7 +1,7 @@
 ﻿
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Hello " + Session["Username"] + "!", "Profile", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <p>Hello @Session["Username"]!</p>
             </li>
             <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
         </ul>

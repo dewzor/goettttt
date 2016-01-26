@@ -36,7 +36,7 @@
                     {
                         string friendreq = Html.Action("Numberfriends", "Friend", new { id = Session["UserID"] }).ToString();
                         <li>@Html.ActionLink("MySettings", "MySettings", "Manage", new { id = Session["UserID"] }, null)</li>
-                        <li>@Html.ActionLink("Edit Profile", "Profile", "Manage")</li>
+                        <li>@Html.ActionLink("Edit Profile", "Profile", "Manage", new { id = Session["UserID"] }, null)</li>
                         <li>@Html.ActionLink("Friendlist", "Friendlist", "Friend", new { id = Session["UserID"] }, null)</li>
                         if (Convert.ToInt32(friendreq) > 0)
                         {

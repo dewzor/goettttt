@@ -81,6 +81,7 @@
     <Compile Include="SECURITY.cs">
       <DependentUpon>WinkDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserModel.cs" />
     <Compile Include="UsersRepository.cs" />
     <Compile Include="WALLPOST.cs">
       <DependentUpon>WinkDB.tt</DependentUpon>

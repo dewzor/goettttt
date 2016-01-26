@@ -13,12 +13,26 @@ namespace Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Profiles getUserByID(int id)
+        public UserModel getUserByID(int id)
         {
-            Profiles user;
+            UserModel user;
             using (var context = new UserDBEntities())
             {
-                user = context.Profiles.Find(id); // hittar profil med matchat id
+                user = (from a in context.Profiles
+                        join s in context.SECURITY on a.Id equals s.PID
+                        where a.Id == id
+                        select new UserModel
+                        {
+                            About = a.About,
+                            Age = a.Age,
+                            Email = a.Email,
+                            Firstname = a.Firstname,
+                            Gender = a.Gender,
+                            Id = a.Id,
+                            Lastname = a.Lastname,
+                            Pic = a.Pic,
+                            Visibility = s.VISIBILITY
+                        }).SingleOrDefault();
             }
             return user;
         }
@@ -27,29 +41,64 @@ namespace Repositories
         /// <summary>
         ///  Hämtar en user med visst namn
         /// </summary>
-        public List<Profiles> findProfilesByName(string name)
+        public List<UserModel> findProfilesByName(string name)
         {
             using (var context = new UserDBEntities())
             {
 
-                context.Database.Connection.Open();
-                List<Profiles> profile = (from a in context.Profiles
-                                          where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
-                                          select a).ToList(); // query som kollar om profiles innehåller inputtade förnamnet eller efternamnet
-                return profile;
+                //context.Database.Connection.Open();
+                //List<UserModel> profile = (from a in context.Profiles
+                //                          where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
+                //                          select a).ToList(); // query som kollar om profiles innehåller inputtade förnamnet eller efternamnet
+                //return profile;
+
+                List<UserModel> users = new List<UserModel>();
+                    users = (from a in context.Profiles
+                             join s in context.SECURITY on a.Id equals s.PID
+                             where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
+                             select new UserModel
+                             {
+                                 About = a.About,
+                                 Age = a.Age,
+                                 Email = a.Email,
+                                 Firstname = a.Firstname,
+                                 Gender = a.Gender,
+                                 Id = a.Id,
+                                 Lastname = a.Lastname,
+                                 Pic = a.Pic,
+                                 Visibility = s.VISIBILITY
+                             }).ToList();
+                return users;
             }
+
         }
 
         /// <summary>
         /// Hämtar alla användare
         /// </summary>
-        public List<Profiles> fetchProfiles()
+        public List<UserModel> fetchProfiles()
         {
+            List<UserModel> users = new List<UserModel>();
+
             using (var context = new UserDBEntities())
             {
-                context.Database.Connection.Open();
-                return context.Profiles.ToList(); //hämtar alla users
+                users = (from a in context.Profiles
+                         join s in context.SECURITY on a.Id equals s.PID
+                         where (s.VISIBILITY == true)
+                         select new UserModel
+                         {
+                             About = a.About,
+                             Age = a.Age,
+                             Email = a.Email,
+                             Firstname = a.Firstname,
+                             Gender = a.Gender,
+                             Id = a.Id,
+                             Lastname = a.Lastname,
+                             Pic = a.Pic,
+                             Visibility = s.VISIBILITY
+                         }).ToList();
             }
+            return users;
         }
 
 
@@ -57,20 +106,40 @@ namespace Repositories
         /// Hämtar 5 random profiler
         /// </summary>
         /// <returns></returns>
-        public List<Profiles> getRandomProfiles()
+        public List<UserModel> getRandomProfiles()
         {
 
             using (var context = new UserDBEntities())
             {
                 context.Database.Connection.Open();
-                List<Profiles> list = context.Profiles.ToList(); //hämtar alla profiler
+
+                List<UserModel> list = new List<UserModel>();
+                    list = (from a in context.Profiles
+                             join s in context.SECURITY on a.Id equals s.PID
+                             where (s.VISIBILITY == true)
+                             select new UserModel
+                             {
+                                 About = a.About,
+                                 Age = a.Age,
+                                 Email = a.Email,
+                                 Firstname = a.Firstname,
+                                 Gender = a.Gender,
+                                 Id = a.Id,
+                                 Lastname = a.Lastname,
+                                 Pic = a.Pic,
+                                 Visibility = s.VISIBILITY
+                             }).ToList();
+
+
+
+
                 List<int> ids = new List<int>(); //lista som lagrar ids för user
                 foreach (var i in list)
                 {
                     ids.Add(i.Id);
                 }
 
-                List<Profiles> filteredList = new List<Profiles>(); //skapar den filtrerade listan som ska returnerna 5 användare
+                List<UserModel> filteredList = new List<UserModel>(); //skapar den filtrerade listan som ska returnerna 5 användare
                 Random random = new Random(); //initierar ny random
                 List<int> ranNumbers = new List<int>(); //lista för körda nummer
                 int c = 0;
@@ -89,6 +158,7 @@ namespace Repositories
 
 
                 return filteredList;
+                
             }
         }
 

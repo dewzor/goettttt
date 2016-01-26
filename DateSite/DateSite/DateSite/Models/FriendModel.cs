@@ -16,7 +16,7 @@ namespace DateSite.Models
 
     public class FriendListModel
     {
-        public List<Profiles> friends = new List<Profiles>();
-        public List<Profiles> requests = new List<Profiles>();
+        public List<UserModel> friends = new List<UserModel>();
+        public List<UserModel> requests = new List<UserModel>();
     }
 }
