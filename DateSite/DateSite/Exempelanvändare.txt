@@ -2,15 +2,20 @@ Exempelanvändare för project:
 
 Username: user1
 Lösen hejsan
+Namn: Torsten
 
 Username: user2
 Lösen hejsan
+Namn: Magdalena
 
 Username: user3
 Lösen hejsan
+Namn: Kevin
 
 Username: user4
 Lösen hejsan
+Namn: Cinderella
 
 Username: user5
 Lösen hejsan
+Namn: Treva
