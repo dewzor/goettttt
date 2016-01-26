@@ -40,6 +40,7 @@ namespace DateSite.Controllers
                 return View();
             }
 
+            //settar en profilemodell för insertion i databasen
             Profiles profile = new Profiles();
             profile.About = model.About;
             profile.Age = Int32.Parse(model.Age);
@@ -48,12 +49,13 @@ namespace DateSite.Controllers
             profile.Lastname = model.Lastname;
             profile.Firstname = model.Firstname;
 
+            //settar en securitymodell för insertion i databasen
             SECURITY security = new SECURITY();
             security.USERNAME = model.Username;
             security.PASSWORD = model.Password;
             security.VISIBILITY = true;
 
-            _usersRepository.insertUser(profile, security);
+            _usersRepository.insertUser(profile, security);  //lägger till användare i databasen
 
             return RedirectToAction("Index", "Home");
         }
@@ -62,17 +64,17 @@ namespace DateSite.Controllers
         public ActionResult Login(LoginModel user)
         {
 
-            SECURITY _user = new SECURITY();
+            SECURITY _user = new SECURITY(); //en securitymodell skapas, där användarens security details lagras
             _user.USERNAME = user.Username;
             _user.PASSWORD = user.Password;
-            var usr = _usersRepository.loginUser(_user);
+            var usr = _usersRepository.loginUser(_user);  //kollar i databas om tupel med användarnamn och lösenord matchar
 
             if (usr != null)
             {
-            Session["UserID"] = usr.PID.ToString();
-            Session["Username"] = usr.USERNAME.ToString();
+            Session["UserID"] = usr.PID.ToString();  //initierar sessionvariabel för senare användning
+            Session["Username"] = usr.USERNAME.ToString(); //initierar sessionvariabel för senare användning
                 FormsAuthentication.SetAuthCookie(usr.PID.ToString(), false);  //skapar en authentication ticket
-                return RedirectToAction("Profile", "Manage", new { @ID = usr.PID });
+                return RedirectToAction("Profile", "Manage", new { @ID = usr.PID }); //redirectar till profileaction i controllern och skickar med id för användaren
             }
             else
             {
@@ -91,7 +93,7 @@ namespace DateSite.Controllers
             }
             else
             {
-                ViewData["LoginError"] = "Could not login. Incorrect credentials.";
+                ViewData["LoginError"] = "Could not login. Incorrect credentials.";  
                 return RedirectToAction("Login");
             }
         }
@@ -100,15 +102,20 @@ namespace DateSite.Controllers
         public ActionResult Login(string lang)
         {
 
-            if (lang != null)
+            if (lang != null)  //settar culture   //////////////
             {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);  
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             }
 
             return View();
         }
 
+
+        /// <summary>
+        /// clearar session variable och dödar authenticationcookie
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Logout()
         {
             Session.Clear();
