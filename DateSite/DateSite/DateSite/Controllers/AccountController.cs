@@ -71,8 +71,8 @@ namespace DateSite.Controllers
             {
             Session["UserID"] = usr.PID.ToString();
             Session["Username"] = usr.USERNAME.ToString();
-                FormsAuthentication.SetAuthCookie(_user.PID.ToString(), false);
-                return RedirectToAction("Profile", "Manage", new RouteValueDictionary(new { _user.USERNAME }));
+                FormsAuthentication.SetAuthCookie(usr.PID.ToString(), false);  //skapar en authentication ticket
+                return RedirectToAction("Profile", "Manage", new { @ID = usr.PID });
             }
             else
             {
@@ -81,6 +81,7 @@ namespace DateSite.Controllers
 
             return View();
         }
+
 
         public ActionResult LoggedIn()
         {

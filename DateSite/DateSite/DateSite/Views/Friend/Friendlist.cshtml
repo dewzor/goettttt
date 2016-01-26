@@ -9,25 +9,37 @@
 <div class="right-box">
     <h2>Friendslist</h2>
     <div class="col-md-12">
-        @foreach (var i in Model.friends)
-        {
-            <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
-                <p> @i.Age @i.Firstname </p>
-            </a>
-        }
 
-        <h2>Friendrequests</h2>
-        @foreach (var i in Model.requests)
+
+        @if (Session["UserID"] != null)
         {
-            <div class="friendbox">
+            foreach (var i in Model.friends)
+            {
                 <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
-                    @i.Age @i.Firstname Accept friend?
+                    <p> @i.Age @i.Firstname </p>
                 </a>
-                <a href='@Url.Action("FriendlistAccept", "Friend" , new { idd = Session["UserID"], friendid = @i.Id }, null)'>Yes </a>
-                <a href='@Url.Action("FriendlistDeny", "Friend" , new { idd = Session["UserID"], friendid = @i.Id }, null)'> No </a>
-            </div>
+            }
 
+            <h2>Friendrequests</h2>
+            foreach (var i in Model.requests)
+            {
+                <div class="friendbox">
+                    <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
+                        @i.Age @i.Firstname Accept friend?
+                    </a>
+                    <a href='@Url.Action("FriendlistAccept", "Friend" , new { idd = Session["UserID"], friendid = @i.Id }, null)'>Yes </a>
+                    <a href='@Url.Action("FriendlistDeny", "Friend" , new { idd = Session["UserID"], friendid = @i.Id }, null)'> No </a>
+                </div>
+
+            }
         }
+        else
+        {
+            <p>Not Logged In</p>
+        }
+
+
+  
 
     </div>
 

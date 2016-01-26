@@ -27,10 +27,10 @@ namespace DateSite.Controllers
         }
 
         [HttpGet]
-        public new ActionResult Profile()
+        public new ActionResult Profile(string id)
         {
             ProfileModel profile = new ProfileModel();
-            var userid = Convert.ToInt32(Session["UserID"]);
+            var userid = Convert.ToInt32(id);
             profile.about = _manageRepository.getPAboutById(userid);
             profile.visible = _manageRepository.getHide(userid);
             profile.userid = userid;

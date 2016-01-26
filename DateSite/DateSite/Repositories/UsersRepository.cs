@@ -18,7 +18,7 @@ namespace Repositories
             Profiles user;
             using (var context = new UserDBEntities())
             {
-                user = context.Profiles.Find(id);
+                user = context.Profiles.Find(id); // hittar profil med matchat id
             }
             return user;
         }
@@ -35,7 +35,7 @@ namespace Repositories
                 context.Database.Connection.Open();
                 List<Profiles> profile = (from a in context.Profiles
                                           where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
-                                          select a).ToList();
+                                          select a).ToList(); // query som kollar om profiles innehåller inputtade förnamnet eller efternamnet
                 return profile;
             }
         }
@@ -48,7 +48,7 @@ namespace Repositories
             using (var context = new UserDBEntities())
             {
                 context.Database.Connection.Open();
-                return context.Profiles.ToList();
+                return context.Profiles.ToList(); //hämtar alla users
             }
         }
 
@@ -63,26 +63,26 @@ namespace Repositories
             using (var context = new UserDBEntities())
             {
                 context.Database.Connection.Open();
-                List<Profiles> list = context.Profiles.ToList();
-                List<int> ids = new List<int>();
+                List<Profiles> list = context.Profiles.ToList(); //hämtar alla profiler
+                List<int> ids = new List<int>(); //lista som lagrar ids för user
                 foreach (var i in list)
                 {
                     ids.Add(i.Id);
                 }
 
-                List<Profiles> filteredList = new List<Profiles>();
+                List<Profiles> filteredList = new List<Profiles>(); //skapar den filtrerade listan som ska returnerna 5 användare
                 Random random = new Random(); //initierar ny random
-                List<int> ranNumbers = new List<int>();
+                List<int> ranNumbers = new List<int>(); //lista för körda nummer
                 int c = 0;
                 //körs tills 5 unika profiler hittas
                 while (c < 5)
                 {
-                    int ran = ids[random.Next(ids.Count)];
+                    int ran = ids[random.Next(ids.Count)];   //genererar en ny random id som finns i id listan
 
-                    if (!ranNumbers.Contains(ran))
+                    if (!ranNumbers.Contains(ran)) //kollar om en user redan finns i listan
                     {
-                        ranNumbers.Add(ran);
-                        filteredList.Add(getUserByID(ran));
+                        ranNumbers.Add(ran);  //lägger till en användarens id i id listan
+                        filteredList.Add(getUserByID(ran)); //lägger till användare i filtrerade listan
                         c++;
                     }
                 }
@@ -131,14 +131,14 @@ namespace Repositories
                 SECURITY usr = null;
                 try
                 {
-                    usr = context.SECURITY.Single(u => u.USERNAME == user.USERNAME && u.PASSWORD == user.PASSWORD);
+                    usr = context.SECURITY.Single(u => u.USERNAME == user.USERNAME && u.PASSWORD == user.PASSWORD);  //kollar om användarnamn och lösen matchar i en tupel
                 }
                 catch
                 {
                     usr = null;
                 }
 
-                return usr;
+                return usr; //returnerar användaren
             }
 
         }

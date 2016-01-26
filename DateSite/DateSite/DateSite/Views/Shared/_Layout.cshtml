@@ -46,22 +46,23 @@
                     }
                 </ul>
 
-                @if (User.Identity.IsAuthenticated)
+                @*@if (User.Identity.IsAuthenticated)
                 {
                     @Html.Partial("_LoggedInPartial")
                 }
                 else
                 {
                     @Html.Partial("_LoginPartial");
-                }
 
-                @*@if(Session["UserID"] != null){
+                }*@
+
+                @if(Session["UserID"] != null){
                     @Html.Partial("_LoggedInPartial")
                 }
                 else
                 {
                     @Html.Partial("_LoginPartial");
-                }*@
+                }
 
 
             </div>

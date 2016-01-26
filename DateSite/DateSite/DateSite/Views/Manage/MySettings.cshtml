@@ -8,7 +8,12 @@
 <div class="container content-wrapper">
     <h2>Change account password</h2>
     <div class="col-md-12 pw">
-        @using (Html.BeginForm())
+
+
+    @if (Session["UserID"] != null)
+    {
+
+        using (Html.BeginForm())
         {
             @Html.ValidationSummary(true)
 
@@ -26,6 +31,11 @@
             <br/>
             <input type="submit" value="SaveSettings" id="submit" />
         }
+    }
+    else
+    {
+        <p>Not Logged In</p>
+    }
 
     </div>
 
