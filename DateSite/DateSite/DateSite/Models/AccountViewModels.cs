@@ -9,11 +9,11 @@ namespace DateSite.Models
     {
         [Display(Name = "Firstname")]
         [Required(ErrorMessage = "You need to enter a first name")]
-        [RegularExpression("/^[A-ZÅÄÖ][a-zåäö]+$/", ErrorMessage = "Incorrect Characters")]
+        [RegularExpression("([a-zA-Z.&'-]+)", ErrorMessage = "Incorrect Characterssss")]
         public string Firstname { get; set; }
 
         [Display(Name = "Lastname")]
-        [RegularExpression("/^[A-ZÅÄÖ][a-zåäö]+$/", ErrorMessage = "Incorrect Characters")]
+        [RegularExpression("([a-zA-Z.&'-]+)", ErrorMessage = "Incorrect Characters")]
         [Required(ErrorMessage = "You need to enter a last name")]
         public string Lastname { get; set; }
 
@@ -24,7 +24,7 @@ namespace DateSite.Models
 
         [Display(Name = "Username")]
         [Required(ErrorMessage = "You need to enter a username")]
-        [RegularExpression("^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){4,18}[a-zA-Z0-9]$", ErrorMessage = "Incorrect Characters")]
+        [RegularExpression("([a-zA-Z0-9.&'-]+)", ErrorMessage = "Incorrect Characters")]
         [MinLength(4, ErrorMessage = "Your username need to consist of atleast 4 characters")]
         public string Username { get; set; }
 
@@ -38,7 +38,8 @@ namespace DateSite.Models
         public string PasswordMatch { get; set; }
 
         [Display(Name = "Gender")]
-        [RegularExpression("/^[A-ZÅÄÖ][a-zåäö]+$/", ErrorMessage = "Incorrect Characters")]
+        [Required(ErrorMessage = "Please enter a gender")]
+        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Incorrect Characters")]
         public string Gender { get; set; }
 
         [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Incorrect Age, enter only numbers")]
@@ -47,7 +48,8 @@ namespace DateSite.Models
         public string Age { get; set; }
 
         [Display(Name = "About")]
-        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Incorrect Characters")]
+        [Required(ErrorMessage = "You need to enter a short about me text")]
+        [RegularExpression("^[a-zA-Z0-9_ ]*$", ErrorMessage = "Incorrect Characters")]
         public string About { get; set; }
 
         [Key]
