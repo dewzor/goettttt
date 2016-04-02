@@ -1,7 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'PT Sans', sans-serif;
+    background-image: url(Images/sos.png);
 }
 
 
@@ -26,7 +27,6 @@ p{
 .navbar-brand{
     font-size: 0px;
     width: 200px;
-    margin-right: 20px;
 }
 
 .navbar-brand img{
@@ -45,6 +45,7 @@ p{
 
 .navbar li a{
     color: #fff;
+    font-size: 12px;
 }
 
 .navbar li a:hover{
@@ -91,8 +92,6 @@ p{
 #footer .row{
     width: 99.9%;
 }
-
-
 
 .header{
   position:absolute;
@@ -202,12 +201,14 @@ p{
     background-color: #fc2d2d;
     border: 0;
     box-shadow: 2px 5px 20px black;
-    height: 100px;
+    height: 60px;
     width: 200px;
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 30px;
     color: #fff;
     border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: -10px;
 }
 
 #registerBtn:hover{
@@ -228,12 +229,13 @@ p{
 }
 
 .example-users{
-    background-color: red;
     width: 100%;
-    background-color: #E0E0E0;
+    background-color: #2D2D2D;
     margin: 0 auto;
     height: auto;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
@@ -250,10 +252,10 @@ p{
 }
 
 .profile-box{
-    height: 100px;
-    background-color: red;
+    height: 110px;
     width: 100px;
     margin: 0 auto;
+    font-size: 12px
 }
 
 .name-tag{
@@ -270,4 +272,14 @@ p{
 
 #friend-alarm{
     color:red;
+}
+
+
+@media (min-width: 1500px) {
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 }

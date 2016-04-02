@@ -16,6 +16,7 @@ namespace DateSite.Controllers
     {
 
         public UsersRepository _usersRepository = new UsersRepository();
+        BrowseModel data = new BrowseModel();
 
         [HttpGet]
         public ActionResult Register()
@@ -100,8 +101,7 @@ namespace DateSite.Controllers
 
         [HttpGet]
         public ActionResult Login(string lang)
-        {
-
+        {  
             if (lang != null)  //settar culture   //////////////
             {
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);  
@@ -111,6 +111,11 @@ namespace DateSite.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            data.randomProfiles = _usersRepository.getRandomProfiles();
+            return View(data);
+        }
 
         /// <summary>
         /// clearar session variable och dödar authenticationcookie

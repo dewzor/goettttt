@@ -8,14 +8,7 @@
 
 
 <div class="content-wrapper">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-2">
-            <h1>Register</h1>
-        </div>
-        <div class="col-md-6"></div>
-        <div class="col-md-2"></div>
-    </div>
+
 
     <div class="form-layout col-md-12">
         @using (Html.BeginForm())
@@ -28,53 +21,107 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
                     @Html.DisplayNameFor(x => x.Firstname)
-                    @Html.TextBoxFor(x => x.Firstname)
+                    @Html.TextBoxFor(x => x.Firstname, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Firstname)
 
                     @Html.DisplayNameFor(x => x.Lastname)
-                    @Html.TextBoxFor(x => x.Lastname)
+                    @Html.TextBoxFor(x => x.Lastname, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Lastname)
 
                     @Html.DisplayNameFor(x => x.Email)
-                    @Html.TextBoxFor(x => x.Email)
+                    @Html.TextBoxFor(x => x.Email, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Email)
 
                     @Html.DisplayNameFor(x => x.Password)
-                    @Html.TextBoxFor(x => x.Password)
+                    @Html.TextBoxFor(x => x.Password, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Password)
 
 
                     @Html.DisplayNameFor(x => x.PasswordMatch)
-                    @Html.TextBoxFor(x => x.PasswordMatch)
+                    @Html.TextBoxFor(x => x.PasswordMatch, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.PasswordMatch)
                 </div>
                 <div class="col-md-3">
 
 
                     @Html.DisplayNameFor(x => x.Username)
-                    @Html.TextBoxFor(x => x.Username)
+                    @Html.TextBoxFor(x => x.Username, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Username)
 
-                    @Html.DisplayNameFor(x => x.Gender)
-                    @Html.TextBoxFor(x => x.Gender)
-                    @Html.ValidationMessageFor(x => x.Gender)
-
                     @Html.DisplayNameFor(x => x.Age)
-                    @Html.TextBoxFor(x => x.Age)
+                    @Html.TextBoxFor(x => x.Age, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.Age)
 
                     @Html.DisplayNameFor(x => x.About)
-                    @Html.TextBoxFor(x => x.About)
+                    @Html.TextBoxFor(x => x.About, new { @class = "register-textbox" })
                     @Html.ValidationMessageFor(x => x.About)
 
-                    <input type="submit" value="Register" id="submit" />
+                    @Html.DisplayNameFor(x => x.Gender)
+                    @Html.DropDownListFor(x => x.Gender,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "Male" , Text = "Male" },
+                       new SelectListItem { Value = "Female" , Text = "Female" }
+                    },
+                  new { @class = "register-textbox dropdown" })
+                    @Html.ValidationMessageFor(x => x.Gender) 
+
                 </div>
                 <div class="col-md-3"></div>
-
+               
             </div>
+            <div class="col-md-12"><input type="submit" value="Register" id="registerBtn" /></div>
 
 
         }
 
     </div>
+
+    <div class="reg-info">
+        <div class="row">
+            <div class="col-md-12 info-text"><img src="~/Content/Images/icons/friend.png" /></div>
+            <div class="col-md-12 info-text"><h2>Add friends</h2></div>
+            <div class="col-md-12 info-text">
+                <p>Maecenas aliquam fermentum mattis. Nullam viverra lacus sit amet justo rutrum, sit amet suscipit dui euismod. Aenean interdum eget ex vel dictum. Vivamus elit risus, pellentesque in tellus sed, ultricies ornare ipsum. Suspendisse vitae neque sed erat tempor efficitur. Etiam pretium, odio vitae hendrerit finibus, magna tortor condimentum libero, et dictum nisi ex ac ex. Ut placerat quam vitae erat scelerisque commodo.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 info-text"><img src="~/Content/Images/icons/chat.png" /></div>
+            <div class="col-md-12 info-text"><h2>Chat with friends</h2></div>
+            <div class="col-md-12 info-text">
+                <p>Maecenas aliquam fermentum mattis. Nullam viverra lacus sit amet justo rutrum, sit amet suscipit dui euismod. Aenean interdum eget ex vel dictum. Vivamus elit risus, pellentesque in tellus sed, ultricies ornare ipsum. Suspendisse vitae neque sed erat tempor efficitur. Etiam pretium, odio vitae hendrerit finibus, magna tortor condimentum libero, et dictum nisi ex ac ex. Ut placerat quam vitae erat scelerisque commodo.</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 info-text"><img src="~/Content/Images/icons/gift.png" /></div>
+            <div class="col-md-12 info-text"><h2>Send gifts</h2></div>
+            <div class="col-md-12 info-text">
+                <p>Maecenas aliquam fermentum mattis. Nullam viverra lacus sit amet justo rutrum, sit amet suscipit dui euismod. Aenean interdum eget ex vel dictum. Vivamus elit risus, pellentesque in tellus sed, ultricies ornare ipsum. Suspendisse vitae neque sed erat tempor efficitur. Etiam pretium, odio vitae hendrerit finibus, magna tortor condimentum libero, et dictum nisi ex ac ex. Ut placerat quam vitae erat scelerisque commodo.</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 info-text"><img src="~/Content/Images/icons/meet.png" /></div>
+            <div class="col-md-12 info-text"><h2>Meet up</h2></div>
+            <div class="col-md-12 info-text">
+                <p>Maecenas aliquam fermentum mattis. Nullam viverra lacus sit amet justo rutrum, sit amet suscipit dui euismod. Aenean interdum eget ex vel dictum. Vivamus elit risus, pellentesque in tellus sed, ultricies ornare ipsum. Suspendisse vitae neque sed erat tempor efficitur. Etiam pretium, odio vitae hendrerit finibus, magna tortor condimentum libero, et dictum nisi ex ac ex. Ut placerat quam vitae erat scelerisque commodo.</p>
+            </div>
+        </div>
+
+
+        <div class="row last-row">
+            <div class="col-md-12 info-text"><img src="~/Content/Images/icons/free.png" /></div>
+            <div class="col-md-12 info-text"><h2>All for free!</h2></div>
+            <div class="col-md-12 info-text">
+                <p>Maecenas aliquam fermentum mattis. Nullam viverra lacus sit amet justo rutrum, sit amet suscipit dui euismod. Aenean interdum eget ex vel dictum. Vivamus elit risus, pellentesque in tellus sed, ultricies ornare ipsum. Suspendisse vitae neque sed erat tempor efficitur. Etiam pretium, odio vitae hendrerit finibus, magna tortor condimentum libero, et dictum nisi ex ac ex. Ut placerat quam vitae erat scelerisque commodo.</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
 </div>

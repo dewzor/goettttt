@@ -3,6 +3,8 @@
     color: #fff;
     padding-bottom: 2%;
     padding-top: 2%;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
 }
 
@@ -12,11 +14,8 @@
 }
 
 form input[type=text]{
-    width: 150px;
-}
-h1{
-    margin-top: 10%;
-    margin-bottom: 2%;
+    width: 170px;
+    background-color: #4d4d4d;
 }
 
 #submit{
@@ -35,4 +34,81 @@ input{
 
 form{
     text-align: center;
+}
+
+
+#registerBtn{
+    background-color: #fc2d2d;
+    border: 0;
+    box-shadow: 2px 5px 20px black;
+    height: 50px;
+    width: 120px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#registerBtn:hover{
+    background-color: red;
+    transform: scale(1.05);
+    transition: all .1s ease-in-out;
+}
+
+.register-textbox{
+    background-image: url(Images/sos.png);
+    border: none;
+    border-radius: 12px;
+    height: 30px;
+    color: #000;
+    padding: 0px 10px;
+}
+
+.info-text{
+    margin-top: 40px;
+    padding-left: 400px;
+    padding-right: 400px;
+    text-align:center;
+}
+
+.info-text img{
+    margin-bottom: -30px;
+}
+
+.info-text h2{
+    margin-bottom: -30px;
+}
+
+.last-row{
+    margin-bottom: 80px;
+}
+
+.dropdown{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 170px;
+}
+
+.text-fix{
+    display:block;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .info-text{
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .info-text{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
 }

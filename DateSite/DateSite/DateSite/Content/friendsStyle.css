@@ -1,0 +1,42 @@
+﻿#main ul {
+	position: relative;
+	height: auto;
+    max-height: 250px;
+    width: 100%;
+    margin-left: 30px;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	list-style: none;
+    margin-top: 20px;
+	-webkit-perspective: 400px;
+	   -moz-perspective: 400px;
+	    -ms-perspective: 400px;
+	        perspective: 400px;
+}
+#main	ul li {
+		position: relative;
+		padding: 16px;
+		background: #eee;
+		color: #252525;
+		font-size: 18px;
+		z-index: 2;
+
+		-webkit-transform: translateZ(0px);
+		   -moz-transform: translateZ(0px);
+		    -ms-transform: translateZ(0px);
+		     -o-transform: translateZ(0px);
+		        transform: translateZ(0px);
+	}
+#main	ul li:nth-child(odd) {
+		background: #fff;
+	}
+
+h2{
+    margin-left: 30px;
+}
+
+.row{
+    margin-top: 40px;
+}

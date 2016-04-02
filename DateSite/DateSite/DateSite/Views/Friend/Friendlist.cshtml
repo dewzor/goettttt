@@ -6,20 +6,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+    <link rel="stylesheet" href="~/Content/stroll.css">
+    <link rel="stylesheet" href="~/Content/friendsStyle.css" />
+    <script src="~/Scripts/stroll.js"></script>
+    <script>
+			stroll.bind( '#main ul' );
+    </script>
+</head>
+
 <div class="right-box">
-    <h2>Friendslist</h2>
-    <div class="col-md-12">
-
-
+    <div class="row">
+       
         @if (Session["UserID"] != null)
         {
-            foreach (var i in Model.friends)
-            {
-                <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
-                    <p> @i.Age @i.Firstname </p>
-                </a>
-            }
 
+            <div class="col-md-6">
+                <h2>Friendslist</h2>
+                <div id="main">
+                    <ul class="grow">
+                        @foreach (var i in Model.friends)
+                        {
+                            <li>
+                                <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
+                                    <p> @i.Age @i.Firstname </p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
             <h2>Friendrequests</h2>
             foreach (var i in Model.requests)
             {

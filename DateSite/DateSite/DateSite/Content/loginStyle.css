@@ -31,3 +31,35 @@ form{
 .row p{
     text-align: center;
 }
+
+.login-textbox{
+    background-image: url(Images/sos.png);
+    border: none;
+    border-radius: 12px;
+    height: 30px;
+    color: #000;
+    padding: 0px 10px;
+}
+
+#loginBtn{
+    background-color: #fc2d2d;
+    border: 0;
+    box-shadow: 2px 5px 20px black;
+    height: 30px;
+    width: 80px;
+    font-weight: bolder;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#loginBtn:hover{
+    background-color: red;
+    transform: scale(1.05);
+    transition: all .1s ease-in-out;
+}
+
+input:-webkit-autofill {
+     -webkit-box-shadow: 0 0 0px 1000px #fbfbfb inset;
+}

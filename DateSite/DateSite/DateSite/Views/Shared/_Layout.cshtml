@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <title>Wink - Dating Online</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/hover.css")
     @Styles.Render("~/Content/animate.css")
@@ -12,12 +12,14 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/autoCompleteFix.js")
+    <script src="~/Scripts/autocompleteFix.js" ></script>
     @RenderSection("scripts", required: false)
 
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
-        <div class="container">
+        <div>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -35,13 +37,10 @@
                     @if (Session["UserID"] != null)
                     {
                         string friendreq = Html.Action("Numberfriends", "Friend", new { id = Session["UserID"] }).ToString();
-                        <li>@Html.ActionLink("MySettings", "MySettings", "Manage")</li>
                         <li>@Html.ActionLink("Edit Profile", "Profile", "Manage", new { id = Session["UserID"] }, null)</li>
-                        <li>@Html.ActionLink("Friendlist", "Friendlist", "Friend", new { id = Session["UserID"] }, null)</li>
-                        if (Convert.ToInt32(friendreq) > 0)
-                        {
-                        <li>@Html.ActionLink(friendreq, "Friendlist", "Friend", new { id = Session["UserID"] }, null) new friendrequest(s)</li>
-                        }
+
+                        <li>@Html.ActionLink("Friend requests  " + friendreq, "Friendlist", "Friend", new { id = Session["UserID"] }, null)</li>
+                 
 
                     }
                 </ul>

@@ -22,46 +22,40 @@
 </head>
 
 <div class="container">
-    <h1>Browse Profiles</h1>
-    
-    <div id="filter-profiles">
-        
+   
         <div class="row search-row">
             <div class="col-md-12">
 
                 @using (Html.BeginForm())
                 { 
-                    <p>Search a user</p>
-                    <input type="text" name="searchtext" />
+                    <input type="text" name="searchtext" placeholder="Search any name..." />
                     <input type="submit" value="Search" id="searchBtn" />
                 }
 
             </div>
         </div>
 
-    </div>
-
 </div>
 <hr />
 
 <div class="row profiles">
-    <div class="col-md-2 sides"></div>
-    <div class="col-md-8">
+    <div class="col-md-2"></div>
+        <div class="col-md-8">
 
-        <div class="row profile-row">
-            @foreach (var i in Model.profiles)
+            <div class="row profile-row">
+                @foreach (var i in Model.profiles)
             {
-                <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
-                    <div class="col-md-2 profile profilebox" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
-                        <div class="profile-text">
-                            <p>@i.Firstname</p>
-                            <p>@i.Gender @i.Age</p>
+                    <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
+                        <div class="col-md-2 profile hvr-shrink" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
+                            <div class="profile-text">
+                                <p>@i.Firstname</p>
+                                <p>@i.Gender @i.Age</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            }
-        </div>
+                    </a>
+                }
+            </div>
 
+        </div>
+    <div class="col-md-2"></div>
     </div>
-    <div class="col-md-2 sides"></div>
-</div>

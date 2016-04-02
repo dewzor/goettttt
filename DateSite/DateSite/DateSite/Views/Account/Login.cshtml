@@ -17,12 +17,11 @@
         <div class="row formLayout">
             <div class="col-md-12">
 
-
                 <div class="centering">
                     @Resources.Register.username
                 </div>
 
-                @Html.TextBoxFor(x => x.Username)
+                @Html.TextBoxFor(x => x.Username, new { @class = "login-textbox" })
                 @Html.ValidationMessageFor(x => x.Username)
 
 
@@ -30,10 +29,10 @@
                     @Resources.Register.password
                 </div>
 
-                @Html.PasswordFor(x => x.Password)
+                @Html.PasswordFor(x => x.Password, new { @class = "login-textbox" })
                 @Html.ValidationMessageFor(x => x.Password)
 
-                <input type="submit" value="@Resources.Register.loginText" />
+                <input type="submit" value="@Resources.Register.loginText" id="loginBtn"/>
                 <div class="centering">
                     @ViewData["LoginError"]
                 </div>
@@ -46,5 +45,10 @@
                 </div>
             </div>
     }
+
+
+    <div>
+        @*@Html.Partial("_RandomProfilesPartial")*@
+    </div>
 
 </div>

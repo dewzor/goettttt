@@ -142,3 +142,15 @@ C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\Repositories\bin\Debu
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.dll
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.pdb
 C:\Users\kevin\Desktop\danewgit\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\UserDB.mdf
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\UserDB_log.ldf
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.dll
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\Repositories.pdb
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.dll
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.pdb
+C:\Users\kevin\Desktop\goettttt\DateSite\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache

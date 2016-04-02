@@ -7,32 +7,13 @@
 }
 
 <head>
-    
-</head>
+    <link rel="stylesheet" href="~/Content/stroll.css">
+    <script src="~/Scripts/stroll.js"></script>
+    <script>
+			stroll.bind( '#main ul' );
+    </script>
 
-
-<div class="content-wrapper">
-
-    <div class="container">
-        <div class="row row-offset">
-            <div class="col-md-12">
-                <div class="profilebox col-md-4" style="background-image: url(../../Content/ProfileImages/@Model.pic); background-size: 100% 100%;"></div>
-                <div class="col-md-8">
-                    <p>Name: @Model.name</p>
-                    <p>Age: @Model.age</p>
-                    <p>Email: @Model.email</p>
-                    <p>About me: @Model.about</p>
-                </div>
-
-            </div>
-            <div>
-            <a href='@Url.Action("AddFriend", "BrowseProfiles" , new { id = Session["UserID"], friendid = Model.userid }, null)'>
-                Add (@Model.name) as friend </a>
-            </div>
-        </div>
-       
-        <div id="wallposts"></div>
-        <script type="text/javascript">
+    <script type="text/javascript">
             var uri = '/api/wall/'+@Model.userid;
             $(document).ready(function () {
                 $.getJSON(uri).done(function (data) {
@@ -52,7 +33,7 @@
                     var userid =@Session["UserID"].ToString();
                     var reciever = @Model.userid.ToString();
                     var wallpost = {'post' : text, 'authoridstring': userid, 'walluseridstring': reciever };
-                    
+
                     $.ajax({
                         url: "/api/wall",
                         type: "POST",
@@ -64,15 +45,56 @@
                 });
             });
             });
-        </script>
-        
-        <div class="row">
-            <div class="col-md-2"></div>
-                <input class="wall-post" type="text" placeholder="Enter your comment..." />
-                <input type="submit" value="Post" id="sendpost" />
-            
-                <div class="col-md-2"></div>
-</div>
+    </script>
+
+</head>
+
+
+<div class="content-wrapper">
+
+    <div class="container">
+
+        <div class="form-bg">
+            <div class="stretch">
+                <h2 class="container">Profile</h2>
+            </div>
+
+            <div class="inner-form">
+                <div class="col-md-12">
+                    <a href='@Url.Action("AddFriend", "BrowseProfiles" , new { id = Session["UserID"], friendid = Model.userid }, null)'>
+                        <img src="~/Content/Images/icons/addme.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profilebox col-md-4" style="background-image: url(../../Content/ProfileImages/@Model.pic); background-size: 100% 100%;"></div>
+                        <div class="col-md-8 user-info">
+                            <p class="bold-li">@Model.name</p>
+                            <p>@Model.age years old</p>
+                            <p>@Model.about</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="main">
+                            <ul class="grow">
+                                <li><div id="wallposts"></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea class="wall-post" type="text" placeholder="Enter your comment..."> </textarea>
+                        <input type="submit" value="Comment" id="sendpost" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 </div>
